@@ -13,21 +13,16 @@ using namespace std;
 
 
 Roster::Roster() {
-
 	//set array length
 	this->classRosterArrayPopulation = 0;
-
 	return;
-
 }
 
 
 Roster::~Roster() {
 
 	for(int i=0; i < this->classRosterArrayPopulation; i++){
-
 			delete this->classRosterArray[i];
-
 	}
 
 	this->classRosterArrayPopulation = 0;
@@ -38,7 +33,6 @@ Roster::~Roster() {
 
 //function to add new students
 void Roster::Add(string studentId, string firstName, string lastName, string email, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degree){
-
 	//create student
 	Student *student = new Student(studentId, firstName, lastName, email, age, daysInCourse1, daysInCourse2, daysInCourse3, degree);
 
@@ -49,7 +43,6 @@ void Roster::Add(string studentId, string firstName, string lastName, string ema
 	this->classRosterArrayPopulation++;
 
 	return;
-
 }
 
 
@@ -69,9 +62,7 @@ void Roster::Remove(string studentId){
 			//loop remaining items and shift array elements down
 			for(int j=i; j < (this->classRosterArrayPopulation); j++)
 			{
-
 				this->classRosterArray[j]=this->classRosterArray[j + 1];
-
 			}
 
 			//null the last item
@@ -79,9 +70,7 @@ void Roster::Remove(string studentId){
 
 			//iterate counter down
 			this->classRosterArrayPopulation--;
-
 		}
-
 	}
 
 	if (found == false){
@@ -94,12 +83,9 @@ void Roster::Remove(string studentId){
 
 //print functions to output class roster array data:
 void Roster::PrintAll() const{
-
 	//loop though class roster array
 	for(int i = 0; i < this->classRosterArrayPopulation; i++) {
-
 		this->classRosterArray[i]->Print();
-
 	}
 
 	return;
@@ -108,22 +94,17 @@ void Roster::PrintAll() const{
 
 //print function for average days in course
 void Roster::PrintAverageDaysInCourse(string studentId) const{
-
 	bool found = false;
 
 	//loop though class roster array
 	for(int i = 0; i < this->classRosterArrayPopulation; i++) {
 
-				//check student ID for match
-				if(this->classRosterArray[i]->GetID() == studentId){
-
-					found = true;
-
-					int averageDays = (this->classRosterArray[i]->GetNumberOfDays(0) + this->classRosterArray[i]->GetNumberOfDays(1) + this->classRosterArray[i]->GetNumberOfDays(2)) / 3;
-					cout << studentId << "'s average days in course: " << averageDays << endl;
-
-				}
-
+		//check student ID for match
+		if(this->classRosterArray[i]->GetID() == studentId){
+			found = true;
+			int averageDays = (this->classRosterArray[i]->GetNumberOfDays(0) + this->classRosterArray[i]->GetNumberOfDays(1) + this->classRosterArray[i]->GetNumberOfDays(2)) / 3;
+			cout << studentId << "'s average days in course: " << averageDays << endl;
+		}
 	}
 
 	if (found == false){
@@ -131,7 +112,6 @@ void Roster::PrintAverageDaysInCourse(string studentId) const{
 	}
 
 	return;
-
 }
 
 
@@ -142,15 +122,11 @@ void Roster::PrintInvalidEmails() const{
 
 	//loop though class roster array
 	for(int i = 0; i < this->classRosterArrayPopulation; i++) {
-
-				//check student Degree for match
-				if(this->classRosterArray[i]->CheckEmail() == false){
-
-					found = true;
-
-					cout << this->classRosterArray[i]->GetID() << " has an invalid email address." << endl;
-
-				}
+		//check student Degree for match
+		if(this->classRosterArray[i]->CheckEmail() == false){
+			found = true;
+			cout << this->classRosterArray[i]->GetID() << " has an invalid email address." << endl;
+		}
 
 	}
 
@@ -171,16 +147,16 @@ void Roster::PrintByDegreeProgram(DegreeProgram degree) const{
 	//loop though class roster array
 	for(int i = 0; i < this->classRosterArrayPopulation; i++) {
 
-				//check student Degree for match
-				if(this->classRosterArray[i]->GetDegree() == degree){
+		//check student Degree for match
+		if(this->classRosterArray[i]->GetDegree() == degree){
 
-					found = true;
+			found = true;
 
-					string degreeString = this->classRosterArray[i]->GetDegreeString();
+			string degreeString = this->classRosterArray[i]->GetDegreeString();
 
-					cout << this->classRosterArray[i]->GetID() << " is currently enrolled in the " << degreeString << " program." << endl;
+			cout << this->classRosterArray[i]->GetID() << " is currently enrolled in the " << degreeString << " program." << endl;
 
-				}
+		}
 
 	}
 
