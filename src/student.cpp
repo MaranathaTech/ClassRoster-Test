@@ -35,7 +35,7 @@ void Student::Print() const {
 	cout << " [tab]daysInCourse: {" << this->GetNumberOfDays(0) << ", " << this->GetNumberOfDays(1) << ", " << this->GetNumberOfDays(2) << "}";
 	cout << " Degree Program: " << this->GetDegreeString() << endl;
 
-   return;
+   	return;
 }
 
 
