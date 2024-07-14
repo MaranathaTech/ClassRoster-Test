@@ -152,7 +152,7 @@ string Student::GetDegreeString() const {
 			default:
 				return "Unknown";
 				break;
-		}
+	}
 
 }
 
